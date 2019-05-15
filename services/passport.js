@@ -12,10 +12,21 @@ const keys = require("../config/keys.js");
 const mongoose = require("mongoose");
 // user model import
 const User = mongoose.model("users");
+
+
 // serialize user
 passport.serializeUser((user, done) => {
 	done(null, user.id);
 });
+// deserialize user
+passport.deserializeUser((id, done) => {
+	User.findById(id).then((user) => {
+		done(null, user);
+	});
+})
+// tell passport to use cookies to manage data
+
+
 
 passport.use(new GoogleStrategy({
 	clientID: keys.googleClientID,

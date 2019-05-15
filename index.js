@@ -2,6 +2,8 @@
 const express = require("express");
 // bring in mongoose
 const mongoose = require("mongoose");
+// cookie session npm
+const cookieSession = require("cookie-session");
 // require passport 
 const passport = require("passport");
 // require keys 
@@ -17,6 +19,18 @@ mongoose.connect(keys.mongoURI, {
 });
 // app
 const app = express();
+
+// use cookies in application
+app.use(
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000,
+		keys: [keys.cookieKey]
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 // auth routes
