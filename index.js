@@ -20,11 +20,9 @@ mongoose.connect(keys.mongoURI, {
 // app
 const app = express();
 
-app.get("*", (req, res) => {
-	res.redirect("/");
-});
-
-
+app.get("/", (req, res) => {
+	res.send("GET request to the homepage");
+})
 // use cookies in application
 app.use(
 	cookieSession({
