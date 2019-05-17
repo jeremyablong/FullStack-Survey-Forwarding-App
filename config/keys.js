@@ -1,8 +1,8 @@
 // keys.js - figure out what set of credentials to return
 // google O-auth credidentials
 module.exports = {
-	googleClientID: "344924048850-lio2pkp2crnug8nq4gibodljj3rt549q.apps.googleusercontent.com",
-	googleClientSecret: "dzDHSXy2Sly2G3OCgNwSB-lS",
-	mongoURI: "mongodb+srv://jeremyablong:Jer$8246355@cluster0-b6ohn.mongodb.net/test?retryWrites=true",
+	googleClientID: "291970914608-1jbn2doip62lv70f3teej0af2gpvrdje.apps.googleusercontent.com",
+	googleClientSecret: "ZwzIyRhZo74a87lsFuJUrf55",
+	mongoURI: "mongodb+srv://jeremyablong:Jer$8246355@postmanproductioncluster-ukfh3.mongodb.net/test?retryWrites=true",
 	cookieKey: "aflijaeflaiefjaeafliajfanefneafnnnenebsn"
 };
