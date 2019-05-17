@@ -37,6 +37,6 @@ require("./routes/authRoutes.js")(app);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
 	console.log(`Server is running at port ${PORT}`);
 }); 
