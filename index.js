@@ -20,7 +20,9 @@ mongoose.connect(keys.mongoURI, {
 // app
 const app = express();
 
-
+app.get("*", (req, res) => {
+	res.redirect("/");
+});
 
 
 // use cookies in application
