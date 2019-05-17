@@ -22,9 +22,7 @@ mongoose.connect(keys.mongoURI, {
 // app
 const app = express();
 
-app.use("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "index.html"));
-})
+
 // use cookies in application
 app.use(
 	cookieSession({
