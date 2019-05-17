@@ -22,7 +22,7 @@ mongoose.connect(keys.mongoURI, {
 // app
 const app = express();
 
-app.get("/", (req, res) => {
+app.use("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "index.html"));
 })
 // use cookies in application
@@ -40,5 +40,5 @@ require("./routes/authRoutes.js")(app);
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-	console.log(`Server is running at port ${PORT}`);
+	console.log(`Server is running at port ${port}`);
 }); 
