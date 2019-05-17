@@ -1,8 +1,8 @@
 // keys.js - figure out what set of credentials to return
-if (process.env.NODE_ENV === "production") {
-	// production - return prod set of keys
-	module.exports = require("./dev.js");
-} else {
-	// development return dev keys
-	module.exports = require("./dev.js");
-}
+// google O-auth credidentials
+module.exports = {
+	googleClientID: "344924048850-lio2pkp2crnug8nq4gibodljj3rt549q.apps.googleusercontent.com",
+	googleClientSecret: "dzDHSXy2Sly2G3OCgNwSB-lS",
+	mongoURI: "mongodb+srv://jeremyablong:Jer$8246355@cluster0-b6ohn.mongodb.net/test?retryWrites=true",
+	cookieKey: "aflijaeflaiefjaeafliajfanefneafnnnenebsn"
+};

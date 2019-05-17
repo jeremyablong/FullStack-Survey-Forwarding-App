@@ -8,6 +8,8 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 // require keys 
 const keys = require("./config/keys.js");
+// require path
+const path = require("path");
 // require model user configurations and collection
 require("./models/user.js");
 // passport from services
@@ -21,7 +23,7 @@ mongoose.connect(keys.mongoURI, {
 const app = express();
 
 app.get("/", (req, res) => {
-	res.send("GET request to the homepage");
+	res.sendFile(path.join(__dirname, "index.html"));
 })
 // use cookies in application
 app.use(
@@ -35,8 +37,8 @@ app.use(passport.session());
 // auth routes
 require("./routes/authRoutes.js")(app);
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(port, () => {
 	console.log(`Server is running at port ${PORT}`);
 }); 
