@@ -20,6 +20,9 @@ mongoose.connect(keys.mongoURI, {
 // app
 const app = express();
 
+
+
+
 // use cookies in application
 app.use(
 	cookieSession({
@@ -27,10 +30,6 @@ app.use(
 		keys: [keys.cookieKey]
 	})
 );
-app.use(passport.initialize());
-app.use(passport.session());
-
-
 app.use(passport.initialize());
 app.use(passport.session());
 // auth routes
