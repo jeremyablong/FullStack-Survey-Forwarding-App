@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 // defines what user will look like - collection
 const userSchema = new Schema({
-	googleID: String
+	googleID: String,
+	credits: { type: Number, default: 0  }
 	// can add in additional properties such as 
 	// name: String
 });

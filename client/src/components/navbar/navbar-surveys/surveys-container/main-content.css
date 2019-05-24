@@ -1,0 +1,6 @@
+.bottom_right {
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	margin: 0px 40px 40px 0px;
+}

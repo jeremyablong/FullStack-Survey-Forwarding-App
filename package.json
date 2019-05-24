@@ -9,16 +9,22 @@
   },
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "cd client && npm run start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Jeremy Blong",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
     "cookie-session": "^1.3.3",
     "express": "^4.16.4",
     "mongoose": "^5.5.7",
     "nodemon": "^1.19.0",
     "passport": "^0.4.0",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "sendgrid": "^5.2.3",
+    "stripe": "^7.0.1"
   }
 }

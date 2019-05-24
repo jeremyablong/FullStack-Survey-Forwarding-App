@@ -34,20 +34,18 @@ passport.use(new GoogleStrategy({
 	////////////////////////////////////////////////
 	// edit this to https://peaceful-eyrie-82759.herokuapp.com/auth/google/callback after production build
 	////////////////////////////////////////////////
-	callbackURL: "https://peaceful-eyrie-82759.herokuapp.com/auth/google/callback",
+	callbackURL: "http://localhost:5000/auth/google/callback",
 	proxy: true
-}, (accessToken, refreshToken, profile, done) => {
-	User.findOne({ googleID: profile.id }).then((existingUser) => {
-			if (existingUser) {
-				// we already have a record with the profile id
-					done(null, existingUser);
-			} else {
-				// create a new user - no user record make a new record
-				new User({ googleID: profile.id }).save().then((user) => {
-					done(null, user);
-				})
-			}
-		})
+}, async (accessToken, refreshToken, profile, done) => {
+	const existingUser = await User.findOne({ googleID: profile.id })
+		if (existingUser) {
+			// we already have a record with the profile id
+				done(null, existingUser);
+		} else {
+			// create a new user - no user record make a new record
+			const user = await new User({ googleID: profile.id }).save();
+			dont(null, user);
+		}
 
 	// console.log("Access token", accessToken);
 	// console.log("Refresh token", refreshToken);
