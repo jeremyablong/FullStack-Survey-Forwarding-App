@@ -19,6 +19,10 @@ require("./models/survey.js");
 // passport from services
 require("./services/passport.js");
 // connect mongoDB to mongoose
+// cors
+const cors = require('cors');
+
+
 
 mongoose.connect(keys.mongoURI, {
 	useNewUrlParser: true
@@ -52,7 +56,7 @@ require("./routes/authRoutes.js")(app);
 // survey routes
 require("./routes/surveyRoutes.js")(app);
 
-app.get('/*', function(req, res) {
+app.get('*', cors(), function(req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 
