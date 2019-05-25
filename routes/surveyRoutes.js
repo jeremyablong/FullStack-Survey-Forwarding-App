@@ -65,14 +65,14 @@ module.exports = (app) => {
 		// }
 	});
 
-	app.get("/api/surveys", requireLogin, async (req, res) => {
-		console.log(Survey);
-		const surveys = await Survey.find({ _user: req.user._id })
-			.select({ 
-				recipients: false 
-			});
+	// app.get("/api/surveys", requireLogin, async (req, res) => {
+	// 	console.log(Survey);
+	// 	const surveys = await Survey.find({ _user: req.user._id })
+	// 		.select({ 
+	// 			recipients: false 
+	// 		});
 
-		res.send(surveys);
-	});
+	// 	res.send(surveys);
+	// });
 
 }
