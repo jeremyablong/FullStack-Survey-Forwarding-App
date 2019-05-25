@@ -22,7 +22,18 @@ require("./services/passport.js");
 // cors
 const cors = require('cors');
 
+app.use(cors());
+app.options('*', cors());
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+})
+
+app.get('*', cors(), function(req, res){
+    res.render('./client/build/index.html');
+});
 
 mongoose.connect(keys.mongoURI, {
 	useNewUrlParser: true
@@ -56,9 +67,7 @@ require("./routes/authRoutes.js")(app);
 // survey routes
 require("./routes/surveyRoutes.js")(app);
 
-app.get('*', cors(), function(req, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
-})
+
 
 const port = process.env.PORT || 5000;
 
