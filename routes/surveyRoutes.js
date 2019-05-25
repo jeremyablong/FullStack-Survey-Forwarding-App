@@ -10,13 +10,13 @@ const { URL } = require("url");
 const Survey = mongoose.model("surveys");
 
 module.exports = (app) => {
-	app.get("/api/surveys/:surveyId/:choice", (req, res) => {
+	app.get("https://peaceful-eyrie-82759.herokuapp.com/api/surveys/:surveyId/:choice", (req, res) => {
 		res.send("Thanks for voting!")
 	})
-	app.get("/api/surveys/thanks", (req, res) => {
+	app.get("https://peaceful-eyrie-82759.herokuapp.com/api/surveys/thanks", (req, res) => {
 		res.send("Thanks for voting!");
 	});
-	app.post("/api/surveys/webhooks", (req, res) => {
+	app.post("https://peaceful-eyrie-82759.herokuapp.com/api/surveys/webhooks", (req, res) => {
 		const events = _.map(req.body, (event) => {
 			const pathname = new URL(event.url).pathname;
 
@@ -39,7 +39,7 @@ module.exports = (app) => {
 
 		res.send({});
 	});
-	app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
+	app.post("https://peaceful-eyrie-82759.herokuapp.com/api/surveys", requireLogin, requireCredits, async (req, res) => {
 		const { title, subject, body, recipients } = req.body;
 		const survey = new Survey({
 			title,
