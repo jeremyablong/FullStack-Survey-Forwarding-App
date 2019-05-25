@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // shows a form for a user to complete form
+import { reduxForm } from "redux-form";
 import SurveyForm from "./surveyForm.js";
 import SurveyReview from "./surveyFormReview.js";
 
@@ -36,4 +37,6 @@ class SurveyNew extends Component {
 		);
 	}
 }
-export default SurveyNew;
+export default reduxForm({
+	form: "surveyForm"
+})(SurveyNew);

@@ -20,8 +20,9 @@
 .fa-google-plus-g {
 	margin-top: 10px;
 }
-.google_signin_button {
+.google_signin_button_two {
 	font-weight: bold;
+	background: aquamarine !important;
 }
 #to_google_link button {
 	color: white;

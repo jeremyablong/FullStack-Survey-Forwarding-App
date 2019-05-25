@@ -10,11 +10,11 @@ class Jumbotron extends Component {
 				<div className="jumbotron">
 					<div className="container jumbo_inner">
 					  <h1 className="display-4">"Mail Me Back" Survey's!</h1>
-					  <p className="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-					  <hr className="my-4"/>
-					  <p className="lead">It uses utility classes for typography and spacing to space content out within the larger container.</p>
+					  <p className="lead">Please navigate this website to send mass emails to your friends, clients, family, etc... Sign in with google to gain access.</p>
+					  <hr className="my-4" style={{ borderBottom: "3px solid aquamarine" }}/>
+					  <p className="lead">You MUST sign in to gain access to the site. Please check the security credentials of the website to verfiy the legitimacy of this website. </p>
 					  <a id="to_google_link" href="/auth/google">
-				     	 <button type="button" className="btn btn-info google_signin_button"><i className="fab fa-google-plus-g fa-2x"></i>  Click To Sign In With Google </button>
+				     	 <button type="button" className="btn btn-info google_signin_button_two"><i className="fab fa-google-plus-g fa-2x"></i>  Click To Sign In With Google </button>
 				      </a>
 					</div>
 				</div>

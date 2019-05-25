@@ -22,10 +22,12 @@ class Mailer extends helper.Mail {
 	formatAddress (recipients) {
 		return recipients.map(({ email }) => {
 			return new helper.Email(email);
-		})
+		});
 	}
 	addClickTracking () {
+
 		const trackingSettings = new helper.TrackingSettings();
+		
 		const clickTracking = new helper.ClickTracking(true, true);
 
 		trackingSettings.setClickTracking(clickTracking);

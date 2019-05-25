@@ -17,16 +17,18 @@ return `<!DOCTYPE html>
     <title> Mail Me Back Application </title>
   </head>
   <body>
-	<div style="height: 225px; min-height: 225px; background: #0b357a">
-		<h1 style="text-decoration: underline; text-align: center; text-decoration-color: yellow; color: white; padding-top: 60px"> Mail Me Back Surveys Would Like To Hear Your Feedback! </h1>
+	<div style="height: 100%; background: #0b357a">
+		<h1 style="text-decoration: underline; text-align: center; text-decoration-color: #e5b300; color: white; padding-top: 60px"> Mail Me Back Surveys Would Like To Hear Your Feedback! </h1>
 	</div>
 	<div>
 		<h1 style="text-align: center; padding-top: 30px">I'd like your input!</h1>
 		<h4 style="text-align: center">Please answer the following question: </h4>
+		<h3 style="text-align: center; color: darkred">${survey.title}</h3>
+		<h4 style="text-align: center; color: darkred">${survey.subject}</h4>
 		<h4 style="text-align: center">${survey.body}</h4>
 		<div style="text-align: center;">
-			<a style="font-size: 30px; display: inline-block;" href="${keys.redirectDomain}/api/surveys/thanks">YES</a>
-			<a style="font-size: 30px; display: inline-block;" href="${keys.redirectDomain}/api/surveys/thanks">NO</a>
+			<a style="font-size: 30px; display: inline-block;" href="${keys.redirectDomain}/api/surveys/${survey.id}/thanks">YES</a>
+			<a style="font-size: 30px; display: inline-block;" href="${keys.redirectDomain}/api/surveys/${survey.id}/thanks">NO</a>
 		</div>
 	</div>
 	<div class="row">

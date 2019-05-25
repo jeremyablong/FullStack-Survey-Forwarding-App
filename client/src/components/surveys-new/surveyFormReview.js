@@ -1,10 +1,11 @@
 import React from "react";
 import "./surveys-new.css";
 import { connect } from "react-redux";
+import { submitSurvey } from "../../actions/index.js";
+import { withRouter, Link } from "react-router-dom";
 
 
-
-const SurveyReview = ({ onCancel, formValues }) => {
+const SurveyReview = ({ onCancel, formValues, submitSurvey, history }) => {
 	return (
 		<div>
 			<h5 className="text-center">Please confirm your entries</h5>
@@ -30,7 +31,9 @@ const SurveyReview = ({ onCancel, formValues }) => {
 						<button className="btn btn-danger" onClick={onCancel}><i className="far fa-share-square fa-2x"></i>Click To Go Back To Edit Survey</button>
 					</div>
 					<div className="col-md-6 ml-auto">
-						<button className="btn btn-success lower_btn"><i className="far fa-share-square fa-2x"></i> Send Survey</button>
+					<Link to="/surveys">
+						<button onClick={() => submitSurvey(formValues)} className="btn btn-success lower_btn"><i className="far fa-share-square fa-2x"></i> Send Survey</button>
+					</Link>
 					</div>
 				</div>
 			</div>
@@ -45,4 +48,4 @@ const mapStateToProps = (state) => {
 		formValues: state.form.surveyForm.values
 	}
 }
-export default connect(mapStateToProps, { })(SurveyReview);
+export default connect(mapStateToProps, { submitSurvey })(withRouter(SurveyReview));
