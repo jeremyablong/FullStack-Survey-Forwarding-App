@@ -6,7 +6,7 @@ const stripe = require("stripe")(keys.stripeSecretKey);
 const requireLogin = require("../middlewares/requireLogin.js");
 
 module.exports = (app) => {
-	app.post("https://peaceful-eyrie-82759.herokuapp.com/api/stripe", requireLogin,  async (req, res) => {
+	app.post("/api/stripe", requireLogin,  async (req, res) => {
 		// create charge for stripe
 		const charge = await stripe.charges.create({
 			amount: 500,
