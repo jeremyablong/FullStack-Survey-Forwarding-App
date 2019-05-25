@@ -10,13 +10,13 @@ module.exports = (app) => {
 	);
 	app.get("/auth/google/callback", passport.authenticate("google"),
 		(req, res) => {
-			res.redirect(`https://peaceful-eyrie-82759.herokuapp.com/surveys`);
+			res.redirect(`${production}/surveys`);
 		}
 	);
 
 	app.get("/api/logout", (req, res) => {
 		req.logout();
-		res.redirect(`https://peaceful-eyrie-82759.herokuapp.com/`);
+		res.redirect(`${production}/`);
 	})
 
 	app.get("/api/currentUser", (req, res) => {
