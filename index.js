@@ -12,6 +12,8 @@ const bodyParser = require("body-parser");
 const keys = require("./config/keys.js");
 // require path
 const path = require("path");
+// app
+const app = express();
 // require model user configurations and collection
 require("./models/user.js");
 // model survey
@@ -22,17 +24,43 @@ require("./services/passport.js");
 // cors
 const cors = require('cors');
 
-app.use(cors());
-app.options('*', cors());
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
+//Static file declaration
+app.use(express.static(path.join(__dirname, 'client/build')));
+//production mode
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  //
+  app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = '../client/build/index.html'));
+  })
+}
+//build mode
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/templates/views/index.html'));
 })
 
-app.get('*', cors(), function(req, res){
-    res.render('./client/build/index.html');
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+// any file in /client/scripts will automatically be browserified,
+// excluding common packages.
+// app.use('/js', browserify('./client/scripts', {
+// 	external: config.common.packages,
+// 	transform: ['babelify']
+// }));
+
+/*
+	set up any additional server routes (api endpoints, static pages, etc.)
+	here before the catch-all route for index.html below.
+*/
+
+app.get('*', function(req, res) {
+	// this route will respond to all requests with the contents of your index
+	// template. Doing this allows react-router to render the view in the app.
+	res.render('index.html');
 });
 
 mongoose.connect(keys.mongoURI, {
@@ -42,8 +70,7 @@ mongoose.connect(keys.mongoURI, {
 }).catch((error) => {
 	console.log("NOT connected to the database", error);
 })
-// app
-const app = express();
+
 
 // body parser
 app.use(bodyParser.json());

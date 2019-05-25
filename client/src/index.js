@@ -7,8 +7,6 @@ import reducers from "./reducers";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import reduxThunk from "redux-thunk";
-import axios from "axios";
-window.axios = axios;
 
 const store = createStore(reducers, {  }, applyMiddleware(reduxThunk));
 

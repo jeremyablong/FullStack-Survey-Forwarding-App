@@ -34,7 +34,7 @@ passport.use(new GoogleStrategy({
 	////////////////////////////////////////////////
 	// edit this to https://peaceful-eyrie-82759.herokuapp.com/auth/google/callback after production build
 	////////////////////////////////////////////////
-	callbackURL: "http://localhost:5000/auth/google/callback",
+	callbackURL: "https://peaceful-eyrie-82759.herokuapp.com/auth/google/callback",
 	proxy: true
 }, async (accessToken, refreshToken, profile, done) => {
 	const existingUser = await User.findOne({ googleID: profile.id })
